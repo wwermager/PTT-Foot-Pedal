@@ -1,7 +1,7 @@
 // Credit to Mauricio Allayme - Vargtassen@Hellscream-EU for example code provided at
 // https://www.instructables.com/id/Arduino-foot-pedal-PTT-switch/
 // Created 20 May 2014
-// Updated 29 July 2018 by Will Wermager - will@wermager.me
+// Updated 27 August 2018 by Will Wermager - will@wermager.me
 // Code is compatible only with ATmega32u4 based Arduinos such as the Leonardo or Micro.
   
 #include <Keyboard.h>
