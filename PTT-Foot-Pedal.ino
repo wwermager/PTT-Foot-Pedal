@@ -3,12 +3,10 @@
 
 #include <Keyboard.h>
 int pttPin = 7;
-int ledPin = 13;
 
-// Desired key to be pressed
-// Modifier keys can be found at: https://www.arduino.cc/reference/en/language/functions/usb/keyboard/keyboardmodifiers/
-char pttKey = KEY_CAPS_LOCK;
-char quickKey = KEY_DOWN_ARROW; // bind for quick press
+// Keybinds
+char pttKey = KEY_CAPS_LOCK; // Desired push-to-talk key
+char quickKey = KEY_DOWN_ARROW; // Desired key for quick press
 
 // Button variables
 bool buttonVal = HIGH;  // value read from button
@@ -21,7 +19,6 @@ long upTime = -1;       // time the button was released
 
 void setup() {
   pinMode(pttPin, INPUT_PULLUP);
-  pinMode(ledPin, OUTPUT);
   Keyboard.begin();
   delay(5000);
 }
@@ -37,24 +34,16 @@ void quickPress() {
   // Event 1
   Keyboard.press(quickKey);
   Keyboard.release(quickKey);
-  if (digitalRead(ledPin) == LOW) {
-    digitalWrite(ledPin, HIGH);
-  }
-  else {
-    digitalWrite(ledPin, LOW);
-  }
   delay(10); // Small delay to prevent event from being re-triggered immediately
 }
 bool pttPressed = false;
 void holdKeyEvent() {
   // Event 2
   Keyboard.press(pttKey);
-  digitalWrite(ledPin, HIGH);
   while (digitalRead(pttPin) == LOW) {
     //DO NOTHING
   }
   Keyboard.releaseAll();
-  digitalWrite(ledPin, LOW);
   delay(10); // Small delay to prevent event from being re-triggered immediately
 }
 
