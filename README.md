@@ -1,2 +1,2 @@
 # PTT-Foot-Pedal
-This is an ongoing project. I have repurposed an electric keyboard foot pedal to be used as a push-to-talk key in VOIP applications. Going forward aditional functionality for toggling voice, handling accidental presses, etc. will be added.
+This is an ongoing project. I have repurposed an electric keyboard foot pedal (sustain pedal) to be used primarily as a push-to-talk key in VOIP applications. The push-to-talk key is triggered by holding the pedal down for half of a second. There is also currently functionality to bind a key to be pressed in the event the pedal is pressed and released before a half second has elapsed.
