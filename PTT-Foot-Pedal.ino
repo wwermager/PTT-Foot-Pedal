@@ -52,9 +52,9 @@ void doubleClick() {
 }
 
 int keyPress() {
-  // Event = 1 quick press i.e. accidental - anything less than 250 ms
-  // Event = 2 Press and hold - 250ms to actuate
-  // Event = 3 Quick double-press - 2 clicks within 250 ms
+  // Event = 1 quick press i.e. accidental - anything less than 500 ms
+  // Event = 2 Press and hold - 500 ms to actuate
+  // Event = 3 Quick double-press - 2 clicks within 500 ms
 
   int event = 0;
   buttonVal = digitalRead(pttPin);
