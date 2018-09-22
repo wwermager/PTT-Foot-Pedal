@@ -13,30 +13,32 @@ bool buttonVal = HIGH;  // value read from button
 bool buttonLast = HIGH; // buffered value of the button's previous state
 // Timing variables
 int debounce = 20;      // prevent flickering
-int holdTime = 500;     // ms hold period: how long to wait for press+hold event
+int holdTime = 250;     // ms hold period: how long to wait for press+hold event
 long downTime = -1;     // time the button was pressed down
 long upTime = -1;       // time the button was released
 
+//////////////////////////////////////////// SETUP ////////////////////////////////////////////
 void setup() {
   pinMode(pttPin, INPUT_PULLUP);
   Keyboard.begin();
   delay(5000);
 }
-
+//////////////////////////////////////////// LOOP /////////////////////////////////////////////
 void loop() {
   int pressType = keyPress();
   if (pressType == 1) quickPress();
   if (pressType == 2) holdKeyEvent();
   //if (pressType == 3) doubleClick(); //TODO
 }
-
+//////////////////////////////////////////// 1 Press //////////////////////////////////////////
 void quickPress() {
   // Event 1
   Keyboard.press(quickKey);
+  delay(20); // Needed for some applications to register the key press and release
   Keyboard.release(quickKey);
   delay(10); // Small delay to prevent event from being re-triggered immediately
 }
-bool pttPressed = false;
+//////////////////////////////////////////// Hold ////////////////////////////////////////////
 void holdKeyEvent() {
   // Event 2
   Keyboard.press(pttKey);
@@ -46,7 +48,7 @@ void holdKeyEvent() {
   Keyboard.releaseAll();
   delay(10); // Small delay to prevent event from being re-triggered immediately
 }
-
+//////////////////////////////////////////// 2 Press /////////////////////////////////////////
 void doubleClick() {
   // TODO
 }
