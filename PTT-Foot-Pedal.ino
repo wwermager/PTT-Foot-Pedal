@@ -1,4 +1,4 @@
-// Updated 3 September 2018 by Will Wermager - will@wermager.me
+// Updated 23 September 2018 by Will Wermager - will@wermager.me
 // Code is compatible only with ATmega32u4 based Arduinos such as the Leonardo or Micro.
 
 #include <Keyboard.h>
@@ -53,8 +53,8 @@ void doubleClick() {
 
 int keyPress() {
   // Event = 1 quick press i.e. accidental - anything less than 250 ms
-  // Event = 2 Press and hold - 250ms to actuate
-  // Event = 3 Quick double-press - 2 clicks within 250 ms
+  // Event = 2 Press and hold - 250 ms to actuate
+  // TODO Event = 3 Quick double-press - 2 clicks within 250 ms
 
   int event = 0;
   buttonVal = digitalRead(pttPin);
@@ -77,4 +77,3 @@ int keyPress() {
   buttonLast = buttonVal;
   return event;
 }
-
