@@ -13,7 +13,7 @@ bool buttonVal = HIGH;  // value read from button
 bool buttonLast = HIGH; // buffered value of the button's previous state
 // Timing variables
 int debounce = 20;      // prevent flickering
-int holdTime = 500;     // ms hold period: how long to wait for press+hold event
+int holdTime = 250;     // ms hold period: how long to wait for press+hold event
 long downTime = -1;     // time the button was pressed down
 long upTime = -1;       // time the button was released
 
